@@ -1,0 +1,57 @@
+<!-- JavaScript Program: Count Down Timer -->
+<!doctype html>
+<html>
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Count Down Timer</title> 
+    <style>
+        #demo {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkblue;
+            margin-top: 20px;
+        }
+    </style>
+</head> 
+<body> 
+
+<h2>⏳ Countdown Timer</h2>
+<div id="demo"></div>
+
+<script> 
+// program to create a countdown timer
+
+// time to countdown from (24 hours from now)
+let countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000; 
+
+// update countdown every 1 second
+let x = setInterval(function() { 
+
+    // get today's date and time
+    let now = new Date().getTime(); 
+
+    // find the interval between now and the countdown time
+    let timeLeft = countDownDate - now; 
+
+    // time calculations for days, hours, minutes and seconds
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)); 
+    const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24); 
+    const minutes = Math.floor((timeLeft / (1000 * 60)) % 60); 
+    const seconds = Math.floor((timeLeft / 1000) % 60); 
+
+    // display the result in the element with id="demo"
+    document.getElementById("demo").innerHTML = 
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s"; 
+
+    // clear countdown when finished
+    if (timeLeft < 0) { 
+        clearInterval(x); 
+        document.getElementById("demo").innerHTML = "🎉 CountDown Finished"; 
+    } 
+}, 1000); 
+</script> 
+
+</body> 
+</html>

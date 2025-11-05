@@ -1,0 +1,31 @@
+
+<!-- 1) JavaScript Program to Remove Specific Item From an Array -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Program</title>
+</head>
+<body>
+    <h3>Program to Remove Item from an Array</h3>
+
+    <script>
+        function removeItemFromArray(array, n) {
+            const index = array.indexOf(n);
+            if (index > -1) {
+                array.splice(index, 1);
+            }
+            return array;
+        }
+
+        const myArray = ["Dnyaneshwar", "nakul", "saurav", "shivam", "vaishna"];
+        const result = removeItemFromArray([...myArray], "shivam");
+
+        document.write("Original Array: " + myArray + "<br><br>");
+        document.write("Array After Removed Element: " + result);
+    </script>
+</body>
+</html>
+
+
